@@ -1,0 +1,42 @@
+.page {
+  padding: 40px 20px 70px;
+}
+
+.head {
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 1.7rem;
+  margin-bottom: 8px;
+}
+
+.searchRow {
+  margin-bottom: 18px;
+}
+
+.searchInput {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  padding: 14px 16px;
+  font-size: 0.95rem;
+}
+
+.searchInput::placeholder {
+  color: var(--text-muted);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+.count {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
