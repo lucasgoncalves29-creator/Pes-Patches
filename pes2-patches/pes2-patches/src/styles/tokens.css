@@ -1,0 +1,128 @@
+:root {
+  /* Color tokens — inspired by the PS2 boot screen + a scoreboard at night */
+  --ink: #0a0e18;
+  --ink-raised: #10162550;
+  --surface: #121a2c;
+  --surface-raised: #1a2540;
+  --surface-hover: #212e4d;
+  --line: #26304d;
+  --line-strong: #384368;
+
+  --blue: #3b6ef5;
+  --blue-dim: #2748a0;
+  --blue-glow: #3b6ef540;
+  --pitch: #52d999;
+  --pitch-dim: #245a45;
+  --gold: #f0b429;
+
+  --text-primary: #eef2fb;
+  --text-secondary: #b7bfda;
+  --text-muted: #7c86a6;
+
+  --font-display: 'Rajdhani', 'Arial Narrow', sans-serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-card: 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --shadow-pop: 0 16px 40px -14px rgba(59, 110, 245, 0.35);
+
+  --container-w: 1240px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 15% -10%, #16214020, transparent),
+    radial-gradient(900px 500px at 110% 10%, #0d331f30, transparent),
+    var(--ink);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Subtle CRT scanline texture, kept faint so it reads as texture, not gimmick */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.012) 0px,
+    rgba(255, 255, 255, 0.012) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+.container {
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 2px solid var(--pitch);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
